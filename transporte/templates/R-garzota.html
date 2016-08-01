@@ -1,0 +1,153 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Cars</title>
+		<meta charset="utf-8">
+		<meta name = "format-detection" content = "telephone=no" />
+		<link rel="icon" href="/static/images/favicon.ico">
+		<link rel="shortcut icon" href="/static/images/favicon.ico" />
+		<link rel="stylesheet" href="/static/css/touchTouch.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+		<script src="/static/js/jquery.js"></script>
+		<script src="/static/js/jquery-migrate-1.2.1.js"></script>
+		<script src="/static/js/script.js"></script>
+		<script src="/static/js/superfish.js"></script>
+		<script src="/static/js/jquery.ui.totop.js"></script>
+		<script src="/static/js/jquery.equalheights.js"></script>
+		<script src="/static/js/jquery.mobilemenu.js"></script>
+		<script src="/static/js/jquery.easing.1.3.js"></script>
+		<script src="/static/js/touchTouch.jquery.js"></script>
+		<script>
+			$(document).ready(function(){
+				$().UItoTop({ easingType: 'easeOutQuart' });
+				$('.gallery a.gal').touchTouch();
+			});
+		</script>
+			{% block script %}{% endblock %}	
+	</head>
+	<body class="" id="top">
+		<div class="main">
+<!--==============================header=================================-->
+<header class="clearFix">
+	<div class="wrap"> <a id="logo"><img src="/static/images/log.png"></a>
+    <nav>
+      <div id="nav"> <strong>Navigation</strong>
+        <ul>
+          <li class="active"> 
+	  <a href="/transporte/inicio/">Inicio</a></li>
+	  <li><a href="/transporte/rutas/">Rutas</a></li>
+	  <li><a href="/transporte/ubicacion/">Ubicacion de Unidades</a></li>
+        </ul>
+      </div>
+	<div class="clear"></div>
+    </nav>
+  </div>
+</header>
+<!--==============================Content=================================-->
+<content>
+<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - April 07, 2014!</div>
+	<div class="wrap">
+
+			<!-- Start css3menu.com BODY section -->
+<div><input type="checkbox" id="css3menu-switcher" class="c3m-switch-input">
+<ul id="css3menu1" class="topmenu">
+	<li class="switch"><label onclick="" for="css3menu-switcher"></label></li>
+	
+	<li class="topfirst"><a href="#" style="width:280px;"><span><img src="/static/images/troncal.png" style="margin-left:50px; margin-right:30px;">   Troncales</span></a>
+	<ul>
+		<li><a href="/transporte/Troncal1/" style="width:90px;"><img src="/static/images/azul.png">Troncal 1</a></li>
+		<li><a href="/transporte/Troncal2/" style="width:90px;"><img src="/static/images/azul.png">Troncal 2</a></li>
+		<li><a href="/transporte/Troncal3/" style="width:90px;"><img src="/static/images/azul.png">Troncal 3</a></li>
+	</ul></li>
+	<li class="toplast"><a href="#" style="width:280px;"><span><img src="/static/images/alimentador.png" style="margin-left:50px; margin-right:30px;">   Alimentadores</span></a>
+	<ul>
+		<li><a href="#" style="width:90px;"><span><img src="/static/images/negro.png">Norte</span></a>
+		<ul>
+			<li><a href="/transporte/R-alborada/" style="width:165px;"><img src="/static/images/azul.png">Alborada</a></li>
+			<li><a href="/transporte/R-guayacanes/" style="width:165px;"><img src="/static/images/azul.png">Guayacanes</a></li>
+			<li><a href="/transporte/R-samanes/" style="width:165px;"><img src="/static/images/azul.png">Samanes</a></li>
+			<li><a href="/transporte/R-garzota/" style="width:165px;"><img src="/static/images/azul.png">Garzota</a></li>
+			<li><a href="/transporte/R-juan-tancamarengo/" style="width:165px;"><img src="/static/images/azul.png">Juan Tanca Marengo</a></li>
+			<li><a href="/transporte/R-orellana/" style="width:165px;"><img src="/static/images/azul.png">Orellana</a></li>
+			<li><a href="/transporte/R-sauces/" style="width:165px;"><img src="/static/images/azul.png">Sauces</a></li>
+			<li><a href="/transporte/R-florida-rotonda/" style="width:165px;"><img src="/static/images/azul.png">Florida-Rotonda</a></li>
+			<li><a href="/transporte/R-mapasingue-oeste/" style="width:165px;"><img src="/static/images/azul.png">Mapasingue-Oeste</a></li>
+		</ul></li>
+		<li><a href="#" style="width:90px;"><span><img src="/static/images/negro.png">Sur</span></a>
+		<ul>
+			<li><a href="/transporte/R-estelaMaris-Pradera/" style="width:165px;"><img src="/static/images/azul.png">Estela Maris - Pradera</a></li>
+			<li><a href="/transporte/R-laPlayita/" style="width:165px;"><img src="/static/images/azul.png">La Playita</a></li>
+			<li><a href="/transporte/R-25Julio-Pradera/" style="width:165px;"><img src="/static/images/azul.png">25 de Julio - Pradera</a></li>
+			<li><a href="/transporte/R-atahualpa-sanAgustin/" style="width:165px;"><img src="/static/images/azul.png">Atahualpa - San Agustin</a></li>
+			<li><a href="/transporte/R-fertisa/" style="width:165px;"><img src="/static/images/azul.png">Fertisa</a></li>
+			<li><a href="/transporte/R-floresta/" style="width:165px;"><img src="/static/images/azul.png">Floresta</a></li>
+			<li><a href="/transporte/R-GuasmoCentral/" style="width:165px;"><img src="/static/images/azul.png">Guasmo Central</a></li>
+			<li><a href="/transporte/R-GuasmoSur-Cristal/" style="width:165px;"><img src="/static/images/azul.png">GuasmoSur - Cristal</a></li>
+			<li><a href="/transporte/R-losEsteros/" style="width:165px;"><img src="/static/images/azul.png">Los Estero - 25 de Julio</a></li>
+			<li><a href="/transporte/R-martinAviles/" style="width:165px;"><img src="/static/images/azul.png">Martin Aviles</a></li>
+			<li><a href="/transporte/R-playita-sanAgustin/" style="width:165px;"><img src="/static/images/azul.png">Playita - San Agustin</a></li>
+			<li><a href="/transporte/R-puertomaritimo/" style="width:165px;"><img src="/static/images/azul.png">Puerto Maritimo</a></li>
+			<li><a href="/transporte/R-trinipuerto/" style="width:165px;"><img src="/static/images/azul.png">Trinipuerto</a></li>
+			<li><a href="/transporte/R-trinitaria-2dopuente/" style="width:165px;"><img src="/static/images/azul.png">Trinitaria - 2do Puente</a></li>
+		</ul></li>
+		<li><a href="#" style="width:90px;"><span><img src="/static/images/negro.png">Centro</span></a>
+		<ul>
+			<li><a href="/transporte/R-centro/" style="width:165px;"><img src="/static/images/azul.png">Centro</a></li>
+		</ul></li>
+		<li><a href="#" style="width:90px;"><span><img src="/static/images/negro.png">Este</span></a>
+		<ul>
+			<li><a href="/transporte/R-mapasingue-este/" style="width:165px;"><img src="/static/images/azul.png">Mapasingue Este</a></li>
+		</ul></li>
+		<li><a href="#" style="width:90px;"><span><img src="/static/images/negro.png">Nor-Oeste</span></a>
+		<ul>
+			<li><a href="/transporte/R-causarina/" style="width:165px;"><img src="/static/images/azul.png">Causarina</a></li>
+			<li><a href="/transporte/R-flor-de-bastion/" style="width:165px;"><img src="/static/images/azul.png">Flor de Bastion</a></li>
+			<li><a href="/transporte/R-iguanas/" style="width:165px;"><img src="/static/images/azul.png">Iguanas</a></li>
+			<li><a href="/transporte/R-juan-montalvo/" style="width:165px;"><img src="/static/images/azul.png">Juan Montalvo</a></li>
+			<li><a href="/transporte/R-mucholote-G/" style="width:165px;"><img src="/static/images/azul.png">Mucho Lote - Guamote</a></li>
+			<li><a href="/transporte/R-mucholote-O/" style="width:165px;"><img src="/static/images/azul.png">Mucho Lote - Orquideas</a></li>
+			<li><a href="/transporte/R-pascuales/" style="width:165px;"><img src="/static/images/azul.png">Pascuales</a></li>
+			<li><a href="/transporte/R-UdeBastion/" style="width:165px;"><img src="/static/images/azul.png">U de Bastion</a></li>
+		</ul></li>
+		<li><a href="#" style="width:95px;"><span><img src="/static/images/negro.png">Sur-Oeste</span></a>
+		<ul>
+			<li><a href="/transporte/R-VialaCosta/" style="width:160px;"><img src="/static/images/azul.png">Via a la Costa</a></li>
+		</ul></li>
+	</ul></li>
+</ul>
+</div>
+<div class="clear"></div>
+	<div><a><img src="/static/images/facebook.png" style="margin-top:50px; margin-left:50px;"></a>
+		<a><img src="/static/images/twitter.png" style="margin-top:50px; margin-left:50px;"></a>
+		<a><img src="/static/images/instagram.png" style="margin-top:50px; margin-left:50px;"></a></div>
+<div class="clear"></div>
+<!-- End css3menu.com BODY section -->
+{% block mapa %}
+<div style="margin-top:-170px; margin-left:300px;"><iframe src="https://www.google.com/maps/d/embed?mid=1FUCArHiXuHlz5Tf-ck0Tr_YZmK8" width=100% height="800"></iframe></div>
+{% endblock %}
+	
+	</div>
+	<div class="clear"></div>
+</div>
+	</content>
+        	</div>
+<!--==============================footer=================================-->
+		<footer>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="copy">
+						<div class="st1">
+						<div class="brand">Metro<span class="color1">T</span>ime </div></div>
+						&copy; 2016	| <a href="#">Privacy Policy</a> 
+						Website designed by Maria Mora |
+						 Sign as <a href="/transporte/login/" rel="nofollow">Administrador</a>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</footer>
+
+
+	</body>
+</html>

@@ -1,0 +1,198 @@
+{% extends 'indexadmin.html' %}
+{% block titulo %}
+<title>Agregar conductor</title>
+    <script type="text/javascript">
+        function validar_cedula(){
+          var cedula = document.getElementById("cedula").value;
+          array = cedula.split( "" );
+          num = array.length;
+          if ( num == 10 )
+          {
+            total = 0;
+            digito = (array[9]*1);
+            for( i=0; i < (num-1); i++ )
+            {
+              mult = 0;
+              if ( ( i%2 ) != 0 ) {
+                total = total + ( array[i] * 1 );
+              }
+              else
+              {
+                mult = array[i] * 2;
+                if ( mult > 9 )
+                  total = total + ( mult - 9 );
+                else
+                  total = total + mult;
+              }
+            }
+            decena = total / 10;
+            decena = Math.floor( decena );
+            decena = ( decena + 1 ) * 10;
+            final = ( decena - total );
+            if ( ( final == 10 && digito == 0 ) || ( final == digito ) ) {
+              return true;
+            }
+            else
+            {
+              alert( "La c\xe9dula NO es v\xe1lida!!!" );
+                document.getElementById("cedula").value='';
+              return false;
+            }
+          }
+          else
+          {
+            alert("La c\xe9dula no puede tener menos de 10 d\xedgitos");
+              document.getElementById("cedula").value='';
+            return false;
+          }
+        }
+    function validar_nombres() {
+        valor_nombres=document.getElementById("nombres").value;
+        var exp1=/^[a-z A-Z ñáéíóú]{2,20}\s[a-z A-Z ñáéíóú]{2,20}$/;
+        if( !(exp1.test(valor_nombres)) || /^\s+$/.test(valor_nombres)) {
+            alert("Nombres incorrectos");
+            document.getElementById("nombres").value='';
+            return false;
+        }
+        return true;
+    }
+    function validar_apellidos() {
+        valor_apellidos=document.getElementById("apellidos").value;
+        var exp1=/^[a-z A-Z ñáéíóú]{2,20}\s[a-z A-Z ñáéíóú]{2,20}$/;
+        if( !(exp1.test(valor_apellidos)) || /^\s+$/.test(valor_apellidos)) {
+            alert("Apellidos incorrectos");
+            document.getElementById("apellidos").value='';
+            return false;
+        }
+        return true;
+    }
+    function validar_edad() {
+        valor_edad=document.getElementById("edad").value;
+        if (isNaN(valor_edad) || valor_edad.length!=2 || /^\s+$/.test(valor_edad) || valor_edad=="  " || valor_edad<18 || valor_edad>65) {
+            // Si no se cumple la condicion...
+            alert('La edad debe entre 18 y 65 años');
+            document.getElementById("edad").value='';
+            return false;
+        }
+        return true;
+    }
+    function validar_telefono() {
+        valor_telefono=document.getElementById("telefono").value;
+        if (isNaN(valor_telefono) || (valor_telefono.length!=10 && valor_telefono.length!=7) || /^\s+$/.test(valor_telefono) || valor_telefono=="          ") {
+            // Si no se cumple la condicion...
+            alert('El campo debe ser un numero de 10 dígitos.');
+            document.getElementById("telefono").value='';
+            return false;
+          }
+        return true;
+    }
+    function validar_correo() {
+        valor_correo=document.getElementById("correo").value;
+        if( !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(valor_correo)) ) {
+            alert("Correo incorrecto");
+            document.getElementById("correo").value='';
+            return false;
+        }
+        return true;
+    }
+    function validar_campos() {
+        valor_nombres=document.getElementById("nombres").value;
+        valor_apellidos=document.getElementById("apellidos").value;
+        valor_edad=document.getElementById("edad").value;
+        valor_cedula=document.getElementById("cedula").value;
+        valor_telefono=document.getElementById("telefono").value;
+        valor_correo=document.getElementById("correo").value;
+        valor_id_vehiculo=document.getElementById("id_vehiculo").value;
+        if(valor_nombres==''&&valor_apellidos==''&&valor_edad==''&&valor_cedula==''&&valor_telefono==''&&valor_correo==''&&valor_id_vehiculo=='--------'){
+            alert('Todos los campos son necesarios.');
+            return false;
+        }
+        if(valor_nombres==''){
+            alert('Los nombres son necesarios. \nIngrese nuevamente los datos');
+            return false;
+        }
+        if(valor_apellidos==''){
+            alert('Los apellidos son necesarios. \nIngrese nuevamente los datos');
+            return false;
+        }
+        if(valor_edad==''){
+            alert('La edad es necesaria. \nIngrese nuevamente los datos');
+            return false;
+        }
+        if(valor_cedula==''){
+            alert('La cédula es necesaria. \nIngrese nuevamente los datos');
+            return false;
+        }
+        if(valor_telefono==''){
+            alert('El numero de telefono es necesario. \nIngrese nuevamente los datos');
+            return false;
+        }
+        if(valor_correo==''){
+            alert('El correo es necesario. \nIngrese nuevamente los datos');
+            return false;
+        }
+        if(valor_id_vehiculo=='--------'){
+            alert('no ha seleccionado un codigo de vehículo. \n Ingrese nuevamente los datos');
+            return false;
+        }
+        return true;
+    }
+    </script>
+{% endblock %}
+{% block pag %}
+ <div class="row">
+         <!-- page header -->
+        <div class="col-lg-12">
+            <h1 class="page-header">Agregar Nuevo Conductor</h1>
+        </div>
+        <!--end page header -->
+ </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Form Elements -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Caracteristicas
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h2 style="padding-bottom: 15px">Datos del Conductor</h2>
+
+                                    <form class="register" method="POST" id="form_agregarConductor">
+                                        {% csrf_token %}
+                                        <label>Nombres</label> </br>
+                                            <input style="width: 85%;height: 30px" onchange="validar_nombres()" type="nombres" id="nombres" name="nombres" class="register-input"></br></br>
+                                        <label>Apellidos</label> </br>
+                                            <input style="width: 85%;height: 30px" onchange="validar_apellidos()" type="apellidos" id="apellidos" name="apellidos" class="register-input"></br></br>
+                                        <label>Edad</label> </br>
+                                            <input style="width: 85%;height: 30px" onchange="validar_edad()" type="edad" id="edad" name="edad" class="register-input"></br></br>
+                                        <label>Cedula</label> </br>
+                                            <input style="width: 85%;height: 30px" onchange="validar_cedula()" type="cedula" id="cedula" name="cedula" class="register-input" ></br></br>
+                                        <label>Telefono</label> </br>
+                                            <input style="width: 85%;height: 30px" onchange="validar_telefono()" type="telefono" id="telefono" name="telefono" class="register-input"></br></br>
+                                        <label>Correo</label> </br>
+                                            <input style="width: 85%;height: 30px" onchange="validar_correo()" type="correo" id="correo" name="correo" class="register-input"></br>
+                                        <h6>Ejemplo: luis@hotmail.com</h6></br>
+                                        <label>Codigo Vehiculo</label> </br>
+                                            <select style="width: 85%;height: 30px" name="id_vehiculo" id="id_vehiculo" class="register-select"></br>
+                                                <option value="--------">--------</option>
+                                              {% for id_vehiculo in listacodigo %}
+                                                <option value="{{id_vehiculo.id}}">{{id_vehiculo.codigo}}</option>
+                                              {% endfor %}
+                                        </select></br></br>
+                                        <div class="col-lg-12" style="margin-left: 20%">
+                                            <div style="margin-top: 20px;">
+                                                    <input type="submit" style="padding: 8px; margin-right: 10px;" onclick="validar_campos()" value="Agregar">
+                                                    <input type="reset"  style="padding: 8px; margin-left: 10px;" value="Cancelar">
+                                                </div>
+                                        </div>
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+                     <!-- End Form Elements -->
+                </div>
+            </div>
+            </div>
+{% endblock %}

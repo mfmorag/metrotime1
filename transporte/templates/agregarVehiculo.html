@@ -1,0 +1,99 @@
+{% extends 'indexadmin.html' %}
+{% block titulo %}
+<title xmlns="http://www.w3.org/1999/html">Agregar vehiculo</title>
+    <script type="text/javascript">
+    function validar_placa() {
+        valor_placa=document.getElementById("placa").value;
+        var exprr=/^[A-Z]{3}\d{4}$/;
+        if (valor_placa== null || valor_placa.length != 7 || valor_placa=="       " || !exprr.test(valor_placa)) {
+            // Si no se cumple la condicion...
+            console.log(valor_placa);
+            alert('La placa debe contener 7 digitos.');
+            document.getElementById("placa").value='';
+            return false;
+          }
+        return true;
+    }
+    function validar_codigo() {
+        valor_codigo=document.getElementById("codigo").value;
+        if (isNaN(valor_codigo) || valor_codigo.length!=3 || /^\s+$/.test(valor_codigo) || valor_codigo=="   ") {
+            // Si no se cumple la condicion...
+            alert('Codigo debe ser un numero de 3 digitos entre 000 y 999.');
+            document.getElementById("codigo").value='';
+            return false;
+        }
+        return true;
+    }
+    function validar_numero() {
+        valor_numero=document.getElementById("numero_gsm").value;
+        if (isNaN(valor_numero) || valor_numero.length!=10 || /^\s+$/.test(valor_numero) || valor_numero=="          ") {
+            // Si no se cumple la condicion...
+            alert('El campo debe ser un numero de 10 dígitos.');
+            document.getElementById("numero_gsm").value='';
+            return false;
+          }
+        return true;
+    }
+    function validar_campos() {
+        valor_placa=document.getElementById("placa").value;
+        valor_codigo=document.getElementById("codigo").value;
+        valor_numero=document.getElementById("numero_gsm").value;
+        if(valor_placa==''||valor_numero==''||valor_numero==''){
+            alert('Todos los campos son necesarios');
+            return false;
+        }
+        return true;
+    }
+    </script>
+{% endblock %}
+{% block pag %}
+ <div class="row">
+         <!-- page header -->
+        <div class="col-lg-12">
+            <h1 class="page-header">Agregar Nuevo Vehículo</h1>
+        </div>
+        <!--end page header -->
+ </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Form Elements -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Caracteristicas
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                <h2 style="padding-bottom: 15px">Datos del Vehiculo</h2>
+                                    <form class="register" method="POST" id="form_agregarVehiculo">
+                                        {% csrf_token %}
+                                    <label>Placa</label> </br>
+                                        <input style="width: 85%;height: 30px" onchange="validar_placa()" type="placa" id="placa" name="placa" class="register-input"></br>
+                                        <h6>Ejemplo: AAA0000</h6></br>
+                                    <label>Numero GSM</label> </br>
+                                        <input style="width: 85%;height: 30px" onchange="validar_numero()" type="numero_gsm" id="numero_gsm" name="numero_gsm" class="register-input"></br></br>
+                                    <label>Codigo</label> </br>
+                                        <input style="width: 85%;height: 30px" onchange="validar_codigo()" type="codigo" id="codigo" name="codigo" class="register-input" ></br>
+                                        <h6>Ejemplo: 000</h6></br>
+                                    <label>Estado</label> </br>
+                                        <select style="width: 85%;height: 30px" name="estado" class="register-select"></br>
+                                          {% for estado in listaest %}
+                                            <option value="{{estado.id}}">{{estado.tipo}}</option>
+                                          {% endfor %}
+                                        </select></br></br>
+                                        <div class="col-lg-12" style="margin-left: 20%">
+                                            <div style="margin-top: 20px;">
+                                                    <input type="submit" style="padding: 8px; margin-right: 10px;" onclick="validar_campos()" value="Agregar">
+                                                    <input type="reset"  style="padding: 8px; margin-left: 10px;" value="Cancelar">
+                                                </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!-- End Form Elements -->
+                </div>
+            </div>
+{% endblock %}
