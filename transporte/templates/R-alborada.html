@@ -1,11 +1,14 @@
-{% extends 'R-garzota.html' %}
+{% extends 'index-2.html' %}
 
 {% block script %}
    	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="/static/js/rutaalborada.js"></script>
 
-{% endblock %}	
+{% endblock %}
 
-{% block mapa %}
-<div style="margin-top:-170px; margin-left:300px;"><div id="mapa"></div></div>
+{% block pag %}
+            <div class="row">
+                <div style="margin-top:25px; margin-left:0px;"><div style="height: 860px;" id="mapa"></div></div>
+            </div>
+        </div>
 {% endblock %}
